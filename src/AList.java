@@ -43,7 +43,7 @@ public class AList {
         {
          elements = elements + alist[a] + "\n";
         }
-        return elements
+        return elements;
     }
 
 
