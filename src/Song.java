@@ -1,7 +1,7 @@
 public class Song {
-    private String title;
-    private String artist;
-    private double length;
+    String title;
+    String artist;
+    double length;
 
     public Song(String title, String artist, double length) {
         this.title = title;
@@ -31,6 +31,10 @@ public class Song {
 
     public void setLength(double length) {
         this.length = length;
+    }
+
+    public String toString() {
+        return "songName: " + title + ", artist: " + artist + ", length: " + length;
     }
 
 }
