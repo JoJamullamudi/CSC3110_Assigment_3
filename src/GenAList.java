@@ -1,27 +1,25 @@
-public class AList {
-    Song[] alist;
+public class GenAList<T> {
+    Object[] alist;
     int size;
     int maxSize;
 
-
-    public AList() { //empty constructor
+    public GenAList() { //empty constructor
         maxSize = 10;
-        alist = new Song[maxSize];
+        alist = new Object[maxSize];
         size = 0;
     }
 
-
-    public void addy(Song p) {
-        if (size == maxSize) { // if list is full then doubles the size and  creates a new list with the doubles size,
+    public void addy(T p) {
+        if (size == maxSize) { // if list is full then doubles the size and  creates a new list
             maxSize = maxSize * 2;
-            Song[] newData = new Song[maxSize];
+            Object[] newData = new Object[maxSize];
             for (int a = 0; a < size; a++) // copies the elements from first list into new bigger list
             {
                 newData[a] = alist[a];
             }
             alist = newData; // places the new list with the new size into the old list
         }
-        alist[size] = p; // Adds song to the end
+        alist[size] = p; // adds object to the end
         size++;
     }
 
@@ -41,10 +39,9 @@ public class AList {
         String elements = "";
         for (int a = 0; a < size; a++)
         {
-         elements = elements + alist[a] + "\n";
+            elements = elements + alist[a] + "\n";
         }
         return elements;
     }
-
 
 }

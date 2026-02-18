@@ -1,15 +1,15 @@
 public class Song {
-    String title;
+    String title; // variables needed for song
     String artist;
     double length;
 
-    public Song(String title, String artist, double length) {
+    public Song(String title, String artist, double length) { // constructor
         this.title = title;
         this.artist = artist;
         this.length = length;
     }
 
-    public String getTitle() {
+    public String getTitle() { // Getters
         return title;
     }
 
@@ -21,7 +21,7 @@ public class Song {
         return length;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(String title) { //Setters
         this.title = title;
     }
 
@@ -33,7 +33,7 @@ public class Song {
         this.length = length;
     }
 
-    public String toString() {
+    public String toString() { // Makes the Song a string
         return "songName: " + title + ", artist: " + artist + ", length: " + length;
     }
 
