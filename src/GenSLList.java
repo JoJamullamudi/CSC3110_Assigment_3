@@ -1,25 +1,24 @@
-public class SLList {
+public class GenSLList <T> {
 
-    SLNode head; // making the head and tail of the list
-    SLNode tail;
+    GenSLNode head; // making the head and tail of the list
+    GenSLNode tail;
 
-    public SLList() { // empty constructor
+    public GenSLList() { // empty constructor
         head = null;
         tail = null;
     }
 
-    public void addy(Song s) {
-        SLNode node = new SLNode(s);
+    public void addy(T s) {
+        GenSLNode<T> node = new GenSLNode<>(s);
 
         if (head == null) { // checks if list empty
             head = node;
             tail = node;
         } else {
-            tail.next = node; // if not it'll add to the end of the list
+            tail.next = node;  // if not it'll add to the end of the list
             tail = node;
         }
     }
-
 
     public void removy(int pos) {
 
@@ -28,8 +27,7 @@ public class SLList {
             return;
         }
 
-        if (pos == 0)
-        {
+        if (pos == 0) {
             head = head.next; // removes head of list
 
             if (head == null) // if list is empty then return
@@ -40,9 +38,9 @@ public class SLList {
 
         }
 
-        SLNode current = head; // starts at the head
+        GenSLNode<T> current = head; // starts at the head
 
-        for ( int a = 0; a < pos -1 && current.next != null; a++) { // moving until right before the pos
+        for (int a = 0; a < pos - 1 && current.next != null; a++) { // moving until right before the pos
             current = current.next;
         }
 
@@ -54,15 +52,16 @@ public class SLList {
             tail = current;
         }
         current.next = current.next.next; // links node before to node after
+
     }
 
     @Override
     public String toString() // makes the list a string
     {
         String allNodes = "";
-        SLNode current = head;
+        GenSLNode<T> current = head;
         while (current != null) {
-            allNodes = allNodes + current.song + "\n"; //make the nodes appear on different lines
+            allNodes = allNodes + current.ob + "\n";//make the nodes appear on different lines
             current = current.next;
         }
         return allNodes;
