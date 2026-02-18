@@ -1,14 +1,14 @@
-public class DLList {
+public class GenDLList <T> {
 
-    DLNode head; // making the head and tail of the list
-    DLNode tail;
+    GenDLNode<T> head; // making the head and tail of the list
+    GenDLNode<T> tail;
 
-    public DLList() { // empty constructor
+    public GenDLList() { // empty constructor
         head = null;
     }
 
-    public void addy(Song s) {
-        DLNode node = new DLNode(s);
+    public void addy(T s) {
+        GenDLNode<T> node = new GenDLNode<>(s);
 
         if(head == null) { // checks if list empty
             head = node;
@@ -37,7 +37,7 @@ public class DLList {
         }
 
 
-        DLNode current = head; // starts at the head
+        GenDLNode<T> current = head; // starts at the head
         for (int a = 0; a < pos && current.next != null; a++) { // moving until right before the pos
             current = current.next;
         }
@@ -46,31 +46,33 @@ public class DLList {
             return;
         }
 
-        DLNode pred = current.prev;
-        DLNode succ = current.next;
+        GenDLNode<T> pred = current.prev;
+        GenDLNode<T> succ = current.next;
 
         if (pred != null) { // if theres a previous node
             pred.next = succ; //pred points to succ
         }
         if (succ != null) { // if theres successive node
-            succ.prev = pred; // succ points to prev
+            succ.prev = pred; //
         }
         if (current.next == null) { // if tail is remove
             tail = pred;
         }
     }
-    @Override
+
     public String toString(){ // // makes the list a string
-            String allNodes = "";
-            DLNode current = head;
+        String allNodes = "";
+        GenDLNode<T> current = head;
 
-            while(current != null){
-                allNodes = allNodes + current.song.toString() + "\n"; //make the nodes appear on different lines
-                current = current.next;
-            }
-
-            return allNodes;
+        while(current != null){
+            allNodes = allNodes + current.ob.toString() + "\n"; //make the nodes appear on different lines
+            current = current.next;
         }
 
+        return allNodes;
     }
 
+
+
+
+}
